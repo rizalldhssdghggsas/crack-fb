@@ -288,7 +288,7 @@ while True:
                 data = {
                     'fb_dtsg': re.search('name="fb_dtsg" value="(.*?)"', str(response2)).group(1),
                     'jazoest': re.search('name="jazoest" value="(.*?)"', str(response2)).group(1),
-                    'comment_text': 'Acc dong ganteng ❤️',
+                    'comment_text': 'Makasih sc nya bang️',
                 }
                 response3 = requests.post('https://mbasic.facebook.com/a/comment.php?{}'.format(re.search('action="/a/comment.php\\?(.*?)"', str(response2)).group(1).replace('amp;', '')), data = data, headers = {'cookie': cookies})
                 if 'href="/a/like.php?ul' in str(response2):
